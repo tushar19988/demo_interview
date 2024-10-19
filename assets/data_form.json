@@ -1,0 +1,101 @@
+{
+  "sections": [
+    {
+      "title": "User Information",
+      "fields": [
+        {
+          "type": "text",
+          "label": "Name",
+          "placeholder": "Enter your name",
+          "validation": {
+            "required": true,
+            "minLength": 2
+          }
+        },
+        {
+          "type": "number",
+          "label": "Age",
+          "placeholder": "Enter your age",
+          "validation": {
+            "required": true,
+            "minValue": 0,
+            "maxValue": 120
+          }
+        },
+        {
+          "type": "radio",
+          "label": "Gender",
+          "options": ["Male", "Female", "Other"],
+          "validation": {
+            "required": true
+          }
+        }
+      ]
+    },
+    {
+      "title": "Feedback",
+      "fields": [
+        {
+          "type": "checkbox",
+          "label": "Select Features You Use",
+          "options": ["Feature A", "Feature B", "Feature C"],
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "type": "text",
+          "label": "Additional Comments",
+          "placeholder": "Enter your comments",
+          "conditional": {
+            "dependsOn": "Select Features You Use",
+            "value": "Feature C"
+          },
+          "validation": {
+            "required": true,
+            "minLength": 5
+          }
+        }
+      ]
+    },
+    {
+      "title": "Preferences",
+      "fields": [
+        {
+          "type": "dropdown",
+          "label": "Preferred Contact Method",
+          "options": ["Email", "Phone", "SMS"],
+          "validation": {
+            "required": true
+          }
+        },
+        {
+          "type": "text",
+          "label": "Contact Detail",
+          "placeholder": "Enter your email or phone number",
+          "conditional": {
+            "dependsOn": "Preferred Contact Method",
+            "value": "Email"
+          },
+          "validation": {
+            "required": true,
+            "pattern": "^\\S+@\\S+\\.\\S+$"
+          }
+        },
+        {
+          "type": "text",
+          "label": "Contact Detail",
+          "placeholder": "Enter your email or phone number",
+          "conditional": {
+            "dependsOn": "Preferred Contact Method",
+            "value": "Phone"
+          },
+          "validation": {
+            "required": true,
+            "pattern": "^(\\+\\d{1,3}[- ]?)?\\d{10}$"
+          }
+        }
+      ]
+    }
+  ]
+}
